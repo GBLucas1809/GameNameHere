@@ -59,3 +59,6 @@ func _on_started_glowing():
 
 func _on_stopped_glowing():
 	print("Lumina stopped glowing!")
+
+func _on_hurt_box_hurt(damage: Variant) -> void:
+	print("Lumina toke some damage!!")
