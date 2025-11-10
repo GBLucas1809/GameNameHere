@@ -7,9 +7,14 @@ signal jumped()
 signal entered_water()
 signal exited_water()
 
-@export var jump_height : float
-@export var jump_time_to_peak : float
-@export var jump_time_to_descent : float
+@export var jump_height : float = 10.0
+@export var jump_time_to_peak : float = 0.5
+@export var jump_time_to_descent : float = 0.4
+@export var jump_time_buffer : float = 0.1
+@export var coyote_time : float = 0.1
+
+var buffer_timer : float = 0.0
+var coyote_timer : float = 0.0
 
 @onready var jump_velocity : float = ((2.0 * jump_height) / jump_time_to_peak)
 @onready var gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak))
@@ -19,6 +24,7 @@ signal exited_water()
 
 @export var water_detection_ray_length := 2.0
 
+var jump_available := true
 var is_floating := false
 var is_in_water := false
 var float_timer := 0.0
@@ -32,6 +38,9 @@ func check_for_character_body():
 	if not character_body is CharacterBody3D:
 		push_error("LuminaMovement must be a child of CharacterBody3D!")
 
+func _process(delta: float) -> void:
+	buffer_timer -= delta
+
 func process_movement(delta: float) -> void:
 
 	var direction = get_movement_direction()
@@ -41,6 +50,7 @@ func process_movement(delta: float) -> void:
 	handle_movement(direction, delta)
 	handle_character_direction()
 	handle_gravity(delta)
+	handle_jump_availability()
 	handle_jump()
 	handle_floating(delta)
 
@@ -91,17 +101,30 @@ func handle_gravity(delta: float) -> void:
 		current_gravity = fall_gravity
 	character_body.velocity.y += current_gravity * delta
 
+func handle_jump_availability():
+	if character_body.is_on_floor():
+		jump_available = true
+		coyote_timer = coyote_time
+	
+	if !character_body.is_on_floor() and coyote_timer <= 0:
+		jump_available = true
+
 func handle_jump() -> void:
+
 	if Input.is_action_just_pressed("jump"):
-		if character_body.is_on_floor() or is_in_water:
-			character_body.velocity.y = jump_velocity
+		buffer_timer = jump_time_buffer
+
+	if jump_available == true and buffer_timer > 0:
+		character_body.velocity.y = jump_velocity
+		jumped.emit()
+		jump_available = false
+	elif is_floating and float_timer > 0 and buffer_timer > 0 and jump_available == true:
+		# Optional: Double jump while floating (only in water)
+		if is_in_water:
+			character_body.velocity.y = jump_velocity * 0.8
+			jump_available = false
+			start_floating()
 			jumped.emit()
-		elif is_floating and float_timer > 0:
-			# Optional: Double jump while floating (only in water)
-			if is_in_water:
-				character_body.velocity.y = jump_velocity * 0.8
-				start_floating()
-				jumped.emit()
 
 func handle_floating(delta: float) -> void:
 	if is_floating:

@@ -53,6 +53,7 @@ script = ExtResource("2_7t4te")
 jump_height = 8.0
 jump_time_to_peak = 0.8
 jump_time_to_descent = 0.5
+coyote_time = 0.05
 
 [node name="LuminaAbilities" type="Node" parent="."]
 script = ExtResource("3_gh867")

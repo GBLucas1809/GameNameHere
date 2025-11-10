@@ -1,3 +1,4 @@
+class_name Lumina
 extends CharacterBody3D
 
 # Reference to our movement component
@@ -39,7 +40,6 @@ func _process(delta):
 	if Input.is_action_just_pressed("defend"):
 		div_defense_mode.defend()
 		print("Defense activated: " + str(div_defense_mode.is_mode_on))
-
 
 # Signal handlers for movement events
 func _on_started_floating():

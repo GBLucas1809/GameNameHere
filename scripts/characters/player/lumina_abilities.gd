@@ -11,8 +11,8 @@ var is_glowing := false
 var is_on_cooldown := false
 
 func _ready() -> void:
-	define_needed_nodes_from_children()
 	check_for_character_body()
+	define_needed_nodes_from_children()
 
 func check_for_character_body():
 	character_body = get_parent()
