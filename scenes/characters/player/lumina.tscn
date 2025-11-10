@@ -35,6 +35,9 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_w54db")
 debug_color = Color(0.9734989, 0, 0.43693095, 0.41960785)
 
+[node name="DisableTimer" parent="HurtBox" index="1"]
+one_shot = true
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_y81pg")
 
@@ -47,8 +50,9 @@ mesh = SubResource("BoxMesh_ttmyw")
 
 [node name="LuminaMovement" type="Node" parent="."]
 script = ExtResource("2_7t4te")
-jump_velocity = 20.0
-gravity = 60.0
+jump_height = 8.0
+jump_time_to_peak = 0.8
+jump_time_to_descent = 0.5
 
 [node name="LuminaAbilities" type="Node" parent="."]
 script = ExtResource("3_gh867")
@@ -56,5 +60,6 @@ script = ExtResource("3_gh867")
 [node name="GlowCooldown" type="Timer" parent="LuminaAbilities"]
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+[connection signal="timeout" from="LuminaAbilities/GlowCooldown" to="LuminaAbilities" method="_on_glow_cooldown_timeout"]
 
 [editable path="HurtBox"]
