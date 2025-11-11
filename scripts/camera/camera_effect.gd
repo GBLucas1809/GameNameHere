@@ -242,15 +242,15 @@ func game_over_complete():
 	print("CameraEffects: Game over darkness complete!")
 
 # Manual test function
-func _input(event):
-	# Manual test - press T to toggle full darkness
-	if event.is_action_pressed("ui_accept"):  # Space bar
-		if screen_darkness:
-			if screen_darkness.color.a > 0:
-				# Make transparent
-				screen_darkness.color = Color(0, 0, 0, 0)
-				print("Manual test: Screen darkness OFF")
-			else:
-				# Make dark
-				screen_darkness.color = Color(0, 0, 0, 0.8)
-				print("Manual test: Screen darkness ON")
+#func _input(event):
+	## Manual test - press T to toggle full darkness
+	#if event.is_action_pressed("ui_accept"):  # Space bar
+		#if screen_darkness:
+			#if screen_darkness.color.a > 0:
+				## Make transparent
+				#screen_darkness.color = Color(0, 0, 0, 0)
+				#print("Manual test: Screen darkness OFF")
+			#else:
+				## Make dark
+				#screen_darkness.color = Color(0, 0, 0, 0.8)
+				#print("Manual test: Screen darkness ON")
