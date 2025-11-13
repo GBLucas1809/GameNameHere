@@ -99,17 +99,17 @@ shape = SubResource("BoxShape3D_8codl")
 [node name="Lumina" parent="Characters" instance=ExtResource("1_a01pw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="timer" type="Label3D" parent="Characters/Lumina"]
-transform = Transform3D(0.99962837, 0, -0.027258515, 0, 1, 0, 0.027258515, 0, 0.99962837, 0.023649484, 1.4278381, 1.125812)
-shaded = true
-script = ExtResource("3_i01om")
-max_seconds = 10
-
-[node name="LuminaMovement" parent="Characters/Lumina" index="5"]
+[node name="LuminaMovement" parent="Characters/Lumina" index="4"]
 friction = 30.0
 jump_velocity = 10.0
 gravity = 80.0
 float_slow_fall_gravity = 8.0
+
+[node name="def_mode_timer" type="Label3D" parent="Characters/Lumina"]
+transform = Transform3D(0.99962837, 0, -0.027258515, 0, 1, 0, 0.027258515, 0, 0.99962837, 0.023649484, 1.4278381, 1.125812)
+shaded = true
+script = ExtResource("3_i01om")
+max_seconds = 5
 
 [node name="Systems" type="Node" parent="."]
 
