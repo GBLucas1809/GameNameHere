@@ -7,6 +7,8 @@ signal jumped()
 signal entered_water()
 signal exited_water()
 
+@export var movement_speed : int = 10
+
 @export var jump_height : float = 10.0
 @export var jump_time_to_peak : float = 0.5
 @export var jump_time_to_descent : float = 0.4
@@ -86,7 +88,7 @@ func get_movement_direction() -> Vector3:
 
 func handle_movement(direction: Vector3, delta: float) -> void:
 	
-	character_body.velocity.x = Vector3(direction.x * 10, 0, 0).x
+	character_body.velocity.x = Vector3(direction.x * movement_speed, 0, 0).x
 
 func handle_character_direction():
 
