@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://bmkhsdu1cht2j" path="res://scenes/system/hit_box.tscn" id="1_8codl"]
 [ext_resource type="PackedScene" uid="uid://cuqnvp3bpksl6" path="res://scenes/characters/player/lumina.tscn" id="1_a01pw"]
-[ext_resource type="Script" uid="uid://bq5mjb5mbtwn4" path="res://scripts/utilities/countdown.gd" id="3_i01om"]
 [ext_resource type="Script" uid="uid://b4e6ctadhx0x7" path="res://scripts/camera/camera_follow.gd" id="3_i01om"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kqgng"]
@@ -29,12 +28,12 @@ size = Vector3(1, 5, 1)
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_vfjo7"]
 
-[sub_resource type="Sky" id="Sky_h48di"]
+[sub_resource type="Sky" id="Sky_i01om"]
 sky_material = SubResource("PhysicalSkyMaterial_vfjo7")
 
 [sub_resource type="Environment" id="Environment_pb8ja"]
 background_mode = 2
-sky = SubResource("Sky_h48di")
+sky = SubResource("Sky_i01om")
 glow_enabled = true
 
 [node name="TestEnvironment" type="Node3D"]
@@ -100,17 +99,12 @@ shape = SubResource("BoxShape3D_8codl")
 [node name="Lumina" parent="Characters" instance=ExtResource("1_a01pw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="LuminaMovement" parent="Characters/Lumina" index="4"]
-friction = 30.0
-jump_velocity = 10.0
-gravity = 80.0
-float_slow_fall_gravity = 8.0
+[node name="CollisionShape3D" parent="Characters/Lumina" index="1"]
+debug_color = Color(0.9734989, 0, 0.43693095, 0.41960785)
 
 [node name="def_mode_timer" type="Label3D" parent="Characters/Lumina"]
 transform = Transform3D(0.99962837, 0, -0.027258515, 0, 1, 0, 0.027258515, 0, 0.99962837, 0.023649484, 1.4278381, 1.125812)
 shaded = true
-script = ExtResource("3_i01om")
-max_seconds = 5
 
 [node name="Systems" type="Node" parent="."]
 

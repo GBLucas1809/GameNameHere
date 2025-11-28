@@ -1,11 +1,117 @@
-[gd_scene load_steps=5 format=3 uid="uid://dw0dp3j5udwfk"]
+[gd_scene load_steps=23 format=3 uid="uid://dw0dp3j5udwfk"]
 
 [ext_resource type="Script" uid="uid://cqi5q658xkj5c" path="res://scripts/characters/enemies/enemymovement.gd" id="1_tqeym"]
 [ext_resource type="PackedScene" uid="uid://dknnidc1vod4p" path="res://scenes/characters/enemies/Projectile.tscn" id="2_blu3w"]
+[ext_resource type="Texture2D" uid="uid://bsnfa5x00itb1" path="res://sprites/enemies/Corrupted Benignity Sprite/idle/idle0000.png" id="3_60ha2"]
+[ext_resource type="Texture2D" uid="uid://dtxvxoovlg0mt" path="res://sprites/enemies/Corrupted Benignity Sprite/attack 1/attack10000.png" id="3_rm28b"]
+[ext_resource type="Texture2D" uid="uid://bprflrfh1yx5r" path="res://sprites/enemies/Corrupted Benignity Sprite/idle/idle0001.png" id="4_j8qac"]
+[ext_resource type="Texture2D" uid="uid://d2wifvakhfa8v" path="res://sprites/enemies/Corrupted Benignity Sprite/attack 1/attack10001.png" id="4_vgmrp"]
+[ext_resource type="Texture2D" uid="uid://bjsoltefmjnpf" path="res://sprites/enemies/Corrupted Benignity Sprite/idle/idle0002.png" id="5_5hkcg"]
+[ext_resource type="Texture2D" uid="uid://b0r4pmlqsxrhm" path="res://sprites/enemies/Corrupted Benignity Sprite/attack 2/attack20000.png" id="5_jm6dc"]
+[ext_resource type="Texture2D" uid="uid://lxbfn7srm3h" path="res://sprites/enemies/Corrupted Benignity Sprite/attack 2/attack20001.png" id="6_2c4n4"]
+[ext_resource type="Texture2D" uid="uid://crsrfs64lje1x" path="res://sprites/enemies/Corrupted Benignity Sprite/idle/idle0003.png" id="6_xdoo8"]
+[ext_resource type="Texture2D" uid="uid://d3i67hjx8mpdx" path="res://sprites/enemies/Corrupted Benignity Sprite/attack 2/attack20002.png" id="7_3l4md"]
+[ext_resource type="Texture2D" uid="uid://d1phl7tnr6ixa" path="res://sprites/enemies/Corrupted Benignity Sprite/walking/walking0000.png" id="7_ltw38"]
+[ext_resource type="Texture2D" uid="uid://b3mqv0j21i6hq" path="res://sprites/enemies/Corrupted Benignity Sprite/attack 2/attack20003.png" id="8_fxx77"]
+[ext_resource type="Texture2D" uid="uid://royas7t6xrw7" path="res://sprites/enemies/Corrupted Benignity Sprite/walking/walking0001.png" id="8_wx8h6"]
+[ext_resource type="Texture2D" uid="uid://dwvbvvyjj6wlq" path="res://sprites/enemies/Corrupted Benignity Sprite/attack 2/attack20004.png" id="9_dntkt"]
+[ext_resource type="Texture2D" uid="uid://cnl0wriegibwo" path="res://sprites/enemies/Corrupted Benignity Sprite/walking/walking0002.png" id="9_uv12y"]
+[ext_resource type="Texture2D" uid="uid://c277jsoshu4ki" path="res://sprites/enemies/Corrupted Benignity Sprite/defeated/defeated0000.png" id="10_02loc"]
+[ext_resource type="Texture2D" uid="uid://dc170dxf55xn" path="res://sprites/enemies/Corrupted Benignity Sprite/walking/walking0003.png" id="10_bffhv"]
+[ext_resource type="Script" uid="uid://b8ywlfj2qwgwi" path="res://scripts/characters/enemies/animations.gd" id="11_j8qac"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_tqeym"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tqeym"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8h3pg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rm28b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vgmrp")
+}],
+"loop": true,
+"name": &"attack_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_jm6dc")
+}],
+"loop": true,
+"name": &"attack_2_finishing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_2c4n4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3l4md")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fxx77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_dntkt")
+}],
+"loop": true,
+"name": &"attack_2_mid_air",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_jm6dc")
+}],
+"loop": true,
+"name": &"attack_2_preparing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_02loc")
+}],
+"loop": true,
+"name": &"defeated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_60ha2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_j8qac")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5hkcg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xdoo8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ltw38")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wx8h6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_uv12y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_bffhv")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
 
 [node name="enemy" type="CharacterBody3D" groups=["enemies"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 0)
@@ -16,7 +122,16 @@ player_path = NodePath(".")
 projectile_scene = ExtResource("2_blu3w")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CylinderMesh_tqeym")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+visible = false
 shape = SubResource("CylinderShape3D_tqeym")
+
+[node name="animations" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.080153465, -0.19754827, 0.05055523)
+pixel_size = 0.0015
+sprite_frames = SubResource("SpriteFrames_8h3pg")
+animation = &"idle"
+script = ExtResource("11_j8qac")

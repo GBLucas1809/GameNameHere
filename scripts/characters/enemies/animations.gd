@@ -1,0 +1,3 @@
+extends AnimatedSprite3D
+
+class_name Animations

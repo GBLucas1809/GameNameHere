@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+
 # -------------------- EXPORT VARIABLES --------------------
 @export var speed: float = 4.0
 @export var gravity: float = 9.8
@@ -28,6 +29,9 @@ var health: int
 @onready var mesh: MeshInstance3D = $MeshInstance3D
 var mat: StandardMaterial3D
 var original_color: Color
+
+# -------------------- ANIMATED SPRITE NODE --------------------
+@onready var animated_sprite_3d: AnimatedSprite3D = $animations
 
 # -------------------- READY --------------------
 func _ready():
@@ -67,6 +71,9 @@ func _physics_process(delta):
 	else:
 		if not is_attacking:
 			velocity.y = 0
+
+	# --- Animation logic ---
+	atualizar_animacao()
 
 	# Move using CharacterBody3D built-in velocity
 	move_and_slide()
@@ -193,3 +200,17 @@ func start_death():
 	tween.tween_property(mat, "albedo_color", Color(0,0,0,0), fade_time)
 	tween.tween_callback(Callable(self, "queue_free"))
 	tween.play()
+
+func atualizar_animacao():
+	# Verifica a velocidade horizontal (ignorando Y/pulo)
+	var velocidade_horizontal = Vector3(velocity.x, 0, velocity.z).length()
+	
+	if velocidade_horizontal > 0.1: # Se estiver se movendo
+		animated_sprite_3d.play("walking")
+	else:
+		animated_sprite_3d.play("idle")
+
+	if velocity.x < 0:
+		animated_sprite_3d.flip_h = true  # Vira para a esquerda
+	elif velocity.x > 0:
+		animated_sprite_3d.flip_h = false # Vira para a direita

@@ -1,26 +1,27 @@
-[gd_scene load_steps=43 format=3 uid="uid://dxx6c7xt0ncs1"]
+[gd_scene load_steps=47 format=3 uid="uid://dxx6c7xt0ncs1"]
 
-[ext_resource type="Shader" uid="uid://cyg4w2ho5henj" path="res://Mats/Ground.tres" id="1_6iypd"]
-[ext_resource type="Texture2D" uid="uid://d1i4cof2rabe3" path="res://Textures/SM_PineTree.png" id="1_a0tk4"]
-[ext_resource type="ArrayMesh" uid="uid://cfxlvoo46k3f3" path="res://Props/SM_Ground.obj" id="1_jka67"]
-[ext_resource type="ArrayMesh" uid="uid://dxka2rgdmdyky" path="res://Props/SM_PineTree.obj" id="2_r3fl7"]
-[ext_resource type="ArrayMesh" uid="uid://dh7vxxgvljfhe" path="res://Props/SM_Rock_01.obj" id="4_i5arm"]
-[ext_resource type="Texture2D" uid="uid://cibym37s23ye1" path="res://Textures/SM_PineTree_alpha_0.png" id="5_tereu"]
-[ext_resource type="ArrayMesh" uid="uid://6s81ioa74q67" path="res://Props/SM_Rock_02.obj" id="5_wc5p8"]
-[ext_resource type="Script" uid="uid://bsxp2eu5dvdt0" path="res://camera_3d.gd" id="6_3v7ru"]
-[ext_resource type="ArrayMesh" uid="uid://wvhdhgfv74e" path="res://Props/SM_BrokenWall_01.obj" id="6_wc5p8"]
-[ext_resource type="ArrayMesh" uid="uid://pbxsmlhs3ntl" path="res://Props/SM_Stump.obj" id="7_jsk3o"]
-[ext_resource type="Shader" uid="uid://b4ijv1r44ipdl" path="res://Mats/Walls.tres" id="9_cdqbm"]
-[ext_resource type="Shader" uid="uid://g8efa7ex4rym" path="res://Mats/Interior.tres" id="9_tuemg"]
-[ext_resource type="ArrayMesh" uid="uid://b8w2f8kna0b3o" path="res://Props/SM_Bush.obj" id="11_cdqbm"]
-[ext_resource type="Texture2D" uid="uid://dt27v34yuhuow" path="res://Textures/T_Bush_test.png" id="11_imku0"]
-[ext_resource type="ArrayMesh" uid="uid://bid13iot4qn30" path="res://Props/SM_Floor_01.obj" id="11_tcnuu"]
-[ext_resource type="Shader" uid="uid://cbjgk7h3oueoe" path="res://Mats/Bush.tres" id="12_imku0"]
-[ext_resource type="PackedScene" uid="uid://cuqnvp3bpksl6" path="res://scripts/characters/player/lumina.tscn" id="14_wlxy5"]
+[ext_resource type="Shader" uid="uid://cyg4w2ho5henj" path="res://Mats/Ground.tres" id="1_v3nhf"]
+[ext_resource type="ArrayMesh" uid="uid://cfxlvoo46k3f3" path="res://Props/SM_Ground.obj" id="2_m15ok"]
+[ext_resource type="Texture2D" uid="uid://d1i4cof2rabe3" path="res://Textures/SM_PineTree.png" id="3_q237u"]
+[ext_resource type="ArrayMesh" uid="uid://dxka2rgdmdyky" path="res://Props/SM_PineTree.obj" id="4_4uskm"]
+[ext_resource type="Texture2D" uid="uid://cibym37s23ye1" path="res://Textures/SM_PineTree_alpha_0.png" id="5_iswoq"]
+[ext_resource type="PackedScene" uid="uid://cuqnvp3bpksl6" path="res://scenes/characters/player/lumina.tscn" id="6_bqmlm"]
+[ext_resource type="Script" uid="uid://b4e6ctadhx0x7" path="res://scripts/camera/camera_follow.gd" id="7_thpud"]
+[ext_resource type="PackedScene" uid="uid://dw0dp3j5udwfk" path="res://scenes/characters/enemies/enemy.tscn" id="8_3brsj"]
+[ext_resource type="ArrayMesh" uid="uid://dh7vxxgvljfhe" path="res://Props/SM_Rock_01.obj" id="9_f4o2x"]
+[ext_resource type="Shader" uid="uid://g8efa7ex4rym" path="res://Mats/Interior.tres" id="10_h2pjg"]
+[ext_resource type="ArrayMesh" uid="uid://6s81ioa74q67" path="res://Props/SM_Rock_02.obj" id="11_rq6f0"]
+[ext_resource type="ArrayMesh" uid="uid://wvhdhgfv74e" path="res://Props/SM_BrokenWall_01.obj" id="12_tkag6"]
+[ext_resource type="ArrayMesh" uid="uid://bid13iot4qn30" path="res://Props/SM_Floor_01.obj" id="13_5hos5"]
+[ext_resource type="Shader" uid="uid://b4ijv1r44ipdl" path="res://Mats/Walls.tres" id="14_ulalo"]
+[ext_resource type="ArrayMesh" uid="uid://pbxsmlhs3ntl" path="res://Props/SM_Stump.obj" id="15_568ed"]
+[ext_resource type="Texture2D" uid="uid://dt27v34yuhuow" path="res://Textures/T_Bush_test.png" id="16_pc2p6"]
+[ext_resource type="Shader" uid="uid://cbjgk7h3oueoe" path="res://Mats/Bush.tres" id="17_057tp"]
+[ext_resource type="ArrayMesh" uid="uid://b8w2f8kna0b3o" path="res://Props/SM_Bush.obj" id="18_yqthp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_imku0"]
 render_priority = 0
-shader = ExtResource("1_6iypd")
+shader = ExtResource("1_v3nhf")
 shader_parameter/ColorParameter = Color(0.16, 0.12, 0.04, 1)
 shader_parameter/FloatParameter = 9.0
 
@@ -33,12 +34,22 @@ data = PackedVector3Array(99.9861, 114.1814, 197.9468, -100.0232, 114.1814, 197.
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5arm"]
 cull_mode = 2
 albedo_color = Color(0.47801313, 0.47801313, 0.47801313, 1)
-albedo_texture = ExtResource("1_a0tk4")
+albedo_texture = ExtResource("3_q237u")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wlxy5"]
 cull_mode = 2
 albedo_color = Color(0.49712867, 0.49712867, 0.49712867, 1)
-albedo_texture = ExtResource("5_tereu")
+albedo_texture = ExtResource("5_iswoq")
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_rntj4"]
+
+[sub_resource type="Sky" id="Sky_h48di"]
+sky_material = SubResource("PhysicalSkyMaterial_rntj4")
+
+[sub_resource type="Environment" id="Environment_lkx8l"]
+background_mode = 2
+sky = SubResource("Sky_h48di")
+glow_enabled = true
 
 [sub_resource type="Environment" id="Environment_wlxy5"]
 background_mode = 1
@@ -56,19 +67,19 @@ adjustment_saturation = 1.39
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3v7ru"]
 render_priority = 0
-shader = ExtResource("1_6iypd")
+shader = ExtResource("1_v3nhf")
 shader_parameter/ColorParameter = Color(0.23, 0.175567, 0.0667, 1)
 shader_parameter/FloatParameter = 9.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tcnuu"]
 render_priority = 0
-shader = ExtResource("1_6iypd")
+shader = ExtResource("1_v3nhf")
 shader_parameter/ColorParameter = Color(0.23, 0.175567, 0.0667, 1)
 shader_parameter/FloatParameter = 9.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tuemg"]
 render_priority = 0
-shader = ExtResource("9_tuemg")
+shader = ExtResource("10_h2pjg")
 shader_parameter/ColorParameter = Color(0.32, 0.266667, 0.16, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tcnuu"]
@@ -85,60 +96,60 @@ data = PackedVector3Array(202.5427, -12.457299, 202.5427, -202.5427, -12.457299,
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s0gvp"]
 render_priority = 0
-shader = ExtResource("9_tuemg")
+shader = ExtResource("10_h2pjg")
 shader_parameter/ColorParameter = Color(0.184906, 0.239325, 0.324219, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vxd74"]
 render_priority = 0
-shader = ExtResource("9_tuemg")
+shader = ExtResource("10_h2pjg")
 shader_parameter/ColorParameter = Color(0.184906, 0.239325, 0.324219, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dhlwf"]
 render_priority = 0
-shader = ExtResource("9_tuemg")
+shader = ExtResource("10_h2pjg")
 shader_parameter/ColorParameter = Color(0.184906, 0.239325, 0.324219, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5t8nk"]
 render_priority = 0
-shader = ExtResource("9_tuemg")
+shader = ExtResource("10_h2pjg")
 shader_parameter/ColorParameter = Color(0.184906, 0.239325, 0.324219, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j3e5s"]
 render_priority = 0
-shader = ExtResource("9_tuemg")
+shader = ExtResource("10_h2pjg")
 shader_parameter/ColorParameter = Color(0.184906, 0.239325, 0.324219, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nu31w"]
 render_priority = 0
-shader = ExtResource("9_tuemg")
+shader = ExtResource("10_h2pjg")
 shader_parameter/ColorParameter = Color(0.184906, 0.239325, 0.324219, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_obt1j"]
 render_priority = 0
-shader = ExtResource("9_tuemg")
+shader = ExtResource("10_h2pjg")
 shader_parameter/ColorParameter = Color(0.184906, 0.239325, 0.324219, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i0g27"]
 render_priority = 0
-shader = ExtResource("9_cdqbm")
+shader = ExtResource("14_ulalo")
 shader_parameter/ColorParameter = Color(0.55, 0.41085, 0.1705, 1)
 shader_parameter/FloatParameter = 9.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ealrb"]
 render_priority = 0
-shader = ExtResource("9_cdqbm")
+shader = ExtResource("14_ulalo")
 shader_parameter/ColorParameter = Color(0.55, 0.41085, 0.1705, 1)
 shader_parameter/FloatParameter = 9.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jsnrv"]
 render_priority = 0
-shader = ExtResource("1_6iypd")
+shader = ExtResource("1_v3nhf")
 shader_parameter/ColorParameter = Color(0.3104, 0.4, 0.064, 1)
 shader_parameter/FloatParameter = 9.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lggff"]
 render_priority = 1
-shader = ExtResource("12_imku0")
+shader = ExtResource("17_057tp")
 shader_parameter/color_tint = Color(0, 0, 0, 1)
 shader_parameter/Tint_Int = 0.14
 shader_parameter/rough = 0.605
@@ -153,7 +164,7 @@ alpha_antialiasing_mode = 1
 alpha_antialiasing_edge = 0.3
 cull_mode = 2
 albedo_color = Color(0, 0, 0, 1)
-albedo_texture = ExtResource("11_imku0")
+albedo_texture = ExtResource("16_pc2p6")
 
 [node name="Environemnt" type="Node3D"]
 transform = Transform3D(0.165, 0, 0, 0, 0.165, 0, 0, 0, 0.165, 0, 0, 0)
@@ -161,7 +172,7 @@ transform = Transform3D(0.165, 0, 0, 0, 0.165, 0, 0, 0, 0.165, 0, 0, 0)
 [node name="Ground" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.13032998, 0, 0, 0, 0.13032998, 0, 0, 0, 0.13032998, -64.03358, 11.920105, -15.619682)
 material_override = SubResource("ShaderMaterial_imku0")
-mesh = ExtResource("1_jka67")
+mesh = ExtResource("2_m15ok")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
 
@@ -171,12 +182,12 @@ shape = SubResource("ConcavePolygonShape3D_3v7ru")
 [node name="Ground3" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.13032998, 0, 1.1393809e-08, 0, 0.120457076, 0, -1.1393809e-08, 0, -0.13032998, 206.69925, 14.123016, 33.50234)
 material_override = SubResource("ShaderMaterial_imku0")
-mesh = ExtResource("1_jka67")
+mesh = ExtResource("2_m15ok")
 
 [node name="Ground2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.13032998, 0, 0, 0, 0.13032998, 0, 0, 0, 0.13032998, 267.90588, 9.491165, -15.947138)
 material_override = SubResource("ShaderMaterial_imku0")
-mesh = ExtResource("1_jka67")
+mesh = ExtResource("2_m15ok")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Ground2"]
 
@@ -189,7 +200,7 @@ shape = SubResource("ConcavePolygonShape3D_tuemg")
 [node name="Ground4" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.13032998, 0, 0, 0, 0.13032998, 0, 0, 0, 0.13032998, 267.90588, 9.491165, -15.947138)
 material_override = SubResource("ShaderMaterial_imku0")
-mesh = ExtResource("1_jka67")
+mesh = ExtResource("2_m15ok")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Ground4"]
 
@@ -202,7 +213,7 @@ shape = SubResource("ConcavePolygonShape3D_tuemg")
 [node name="Ground5" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.42341298, 0, 0, 0, 0.28500003, 0, 0, 0, 0.52836645, 928.9486, -250.8014, -15.947138)
 material_override = SubResource("ShaderMaterial_imku0")
-mesh = ExtResource("1_jka67")
+mesh = ExtResource("2_m15ok")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Ground5"]
 
@@ -215,65 +226,75 @@ shape = SubResource("ConcavePolygonShape3D_tuemg")
 [node name="PineTree" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, -5.146202, -9.710542, -3.3805122)
 material_override = SubResource("StandardMaterial3D_i5arm")
-mesh = ExtResource("2_r3fl7")
+mesh = ExtResource("4_4uskm")
 
 [node name="PineTree9" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.26984027, 0, -0.00928627, 0, 0.27, 0, 0.00928627, 0, -0.26984027, 262.3994, -5.153619, 19.234928)
 material_override = SubResource("StandardMaterial3D_i5arm")
-mesh = ExtResource("2_r3fl7")
+mesh = ExtResource("4_4uskm")
 
 [node name="PineTree2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.155, 0, 0, 0, 0.155, 0, 0, 0, 0.155, 187.20015, 44.241257, -126.43108)
 material_override = SubResource("StandardMaterial3D_i5arm")
-mesh = ExtResource("2_r3fl7")
+mesh = ExtResource("4_4uskm")
 
 [node name="PineTree7" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.155, 0, 0, 0, 0.155, 0, 0, 0, 0.155, 347.20102, 44.241257, -191.8481)
 material_override = SubResource("StandardMaterial3D_i5arm")
-mesh = ExtResource("2_r3fl7")
+mesh = ExtResource("4_4uskm")
 
 [node name="PineTree8" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.155, 0, 0, 0, 0.155, 0, 0, 0, 0.155, 270.67847, 44.241257, -209.8355)
 material_override = SubResource("StandardMaterial3D_i5arm")
-mesh = ExtResource("2_r3fl7")
+mesh = ExtResource("4_4uskm")
 
 [node name="PineTree3" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.033933297, 0, -0.099365644, 0, 0.105, 0, 0.099365644, 0, 0.033933297, 205.74364, 44.241272, -73.60788)
 material_override = SubResource("StandardMaterial3D_i5arm")
-mesh = ExtResource("2_r3fl7")
+mesh = ExtResource("4_4uskm")
 
 [node name="PineTree4" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1664698, 0, 0.24354221, 0, 0.295, 0, -0.24354221, 0, 0.1664698, 6.585037, 23.8042, -95.79499)
 material_override = SubResource("StandardMaterial3D_wlxy5")
-mesh = ExtResource("2_r3fl7")
+mesh = ExtResource("4_4uskm")
 
 [node name="PineTree10" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.087467186, 0, 0.12796286, 0, 0.155, 0, -0.12796286, 0, 0.087467186, 185.2606, 49.585075, -226.8423)
 material_override = SubResource("StandardMaterial3D_wlxy5")
-mesh = ExtResource("2_r3fl7")
+mesh = ExtResource("4_4uskm")
 
 [node name="PineTree5" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1664698, 0, 0.24354221, 0, 0.295, 0, -0.24354221, 0, 0.1664698, 7.80772, 23.8042, -210.26038)
 material_override = SubResource("StandardMaterial3D_i5arm")
-mesh = ExtResource("2_r3fl7")
+mesh = ExtResource("4_4uskm")
 
 [node name="PineTree6" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.5405511, 0, 2.2537975, 0, 2.73, 0, -2.2537975, 0, 1.5405511, 344.78433, -151.30663, -582.7947)
 material_override = SubResource("StandardMaterial3D_i5arm")
-mesh = ExtResource("2_r3fl7")
+mesh = ExtResource("4_4uskm")
 
-[node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(0.065, 0, 0, 0, 0.065, 0, 0, 0, 0.065, 0, 0, 0)
+[node name="Characters" type="Node" parent="."]
 
-[node name="camera" type="Node3D" parent="."]
+[node name="Lumina" parent="Characters" instance=ExtResource("6_bqmlm")]
+transform = Transform3D(2.0625, 0, 0, 0, 2.0625, 0, 0, 0, 2.0625, 140.00172, -27.274565, 3.0070078)
 
-[node name="Camera3D" type="Camera3D" parent="camera" node_paths=PackedStringArray("target")]
-transform = Transform3D(6.060606, 0, 0, 0, 6.060606, 0, 0, 0, 6.060606, 54.014454, 47.007004, 75.265976)
-script = ExtResource("6_3v7ru")
-target = NodePath("../Lumina")
+[node name="Systems" type="Node" parent="Characters"]
 
-[node name="Lumina" parent="camera" instance=ExtResource("14_wlxy5")]
-transform = Transform3D(12.5, 0, 0, 0, 12.5, 0, 0, 0, 12.5, 840.84955, -175.39223, -4.812171)
+[node name="Camera3D" type="Camera3D" parent="Characters/Systems" node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881898, 0, -0.25881898, 0.9659259, 140.25737, -27.378979, 21.944124)
+script = ExtResource("7_thpud")
+target = NodePath("../../Lumina")
+offset = Vector3(0, 7, 20)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Characters/Systems"]
+transform = Transform3D(1, 0, 0, 0, 0.3672319, 0.9301294, 0, -0.9301294, 0.3672319, 0, 8.230137, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Characters/Systems"]
+environment = SubResource("Environment_lkx8l")
+
+[node name="enemy" parent="Characters" instance=ExtResource("8_3brsj")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 159.12721, -30.062223, 3.8876534)
 
 [node name="Light" type="Node3D" parent="."]
 
@@ -345,77 +366,77 @@ omni_attenuation = 0.175
 [node name="Rock" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -70.66533, 7.6638184, -167.72949)
 material_override = SubResource("ShaderMaterial_3v7ru")
-mesh = ExtResource("4_i5arm")
+mesh = ExtResource("9_f4o2x")
 
 [node name="Rock2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.06782395, 0, 0.99769723, 0, 1, 0, -0.99769723, 0, -0.06782395, 518.72095, 66.67877, -199.35498)
 material_override = SubResource("ShaderMaterial_tcnuu")
-mesh = ExtResource("4_i5arm")
+mesh = ExtResource("9_f4o2x")
 
 [node name="Rock9" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.06782395, 0, 0.9976973, 0, 1, 0, -0.9976973, 0, -0.06782395, 929.75464, -217.63176, -199.355)
 material_override = SubResource("ShaderMaterial_tcnuu")
-mesh = ExtResource("4_i5arm")
+mesh = ExtResource("9_f4o2x")
 
 [node name="Rock13" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.9976973, 0, 0.0678239, 0, 2.1006758, 0, -0.0678239, 0, 0.9976973, 1094.495, -192.7264, -188.90479)
 material_override = SubResource("ShaderMaterial_tcnuu")
-mesh = ExtResource("4_i5arm")
+mesh = ExtResource("9_f4o2x")
 
 [node name="Rock44" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.9218042, 0, -0.07671596, 0, 2.1006758, 0, 0.19862577, 0, -1.128499, 1495.7975, -192.7264, -238.90256)
 material_override = SubResource("ShaderMaterial_tcnuu")
-mesh = ExtResource("4_i5arm")
+mesh = ExtResource("9_f4o2x")
 
 [node name="Rock41" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.06529611, 0, -1.6194105, 0, 1, 0, 0.96051365, 0, 0.110088155, 947.43427, -318.30756, 188.61082)
 material_override = SubResource("ShaderMaterial_tcnuu")
-mesh = ExtResource("4_i5arm")
+mesh = ExtResource("9_f4o2x")
 
 [node name="Rock14" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.101057634, 0, 1.4865689, 0, 1.49, 0, -1.4865689, 0, -0.101057634, 756.4186, 66.67877, -248.48203)
 material_override = SubResource("ShaderMaterial_tcnuu")
-mesh = ExtResource("4_i5arm")
+mesh = ExtResource("9_f4o2x")
 
 [node name="Rock3" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 342.27042, 9.247612, -237.64325)
 material_override = SubResource("ShaderMaterial_tuemg")
-mesh = ExtResource("5_wc5p8")
+mesh = ExtResource("11_rq6f0")
 
 [node name="Rock4" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -253.46863, 62.450348, -124.57575)
 material_override = SubResource("ShaderMaterial_tuemg")
-mesh = ExtResource("5_wc5p8")
+mesh = ExtResource("11_rq6f0")
 
 [node name="Rock42" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 718.9845, -264.42197, 74.626274)
 material_override = SubResource("ShaderMaterial_tuemg")
-mesh = ExtResource("5_wc5p8")
+mesh = ExtResource("11_rq6f0")
 
 [node name="Rock5" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 234.73145, 2.9650803, 27.18155)
 material_override = SubResource("ShaderMaterial_tuemg")
-mesh = ExtResource("5_wc5p8")
+mesh = ExtResource("11_rq6f0")
 
 [node name="Rock6" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 338.8508, -4.1046867, 27.18155)
 material_override = SubResource("ShaderMaterial_tuemg")
-mesh = ExtResource("5_wc5p8")
+mesh = ExtResource("11_rq6f0")
 
 [node name="Rock7" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.29896018, 0, 0, 0, 0.6537526, 0, 0, 0, 0.3, 438.7788, 39.119358, -86.53273)
 material_override = SubResource("ShaderMaterial_tuemg")
-mesh = ExtResource("5_wc5p8")
+mesh = ExtResource("11_rq6f0")
 
 [node name="Rock16" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.084, 0, 0, 0, 0.37052542, 0, 0, 0, 0.084, 423.2202, 94.779335, -76.771866)
 material_override = SubResource("ShaderMaterial_tuemg")
-mesh = ExtResource("5_wc5p8")
+mesh = ExtResource("11_rq6f0")
 
 [node name="Rock19" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.037341297, 0, 0, 0, 0.3553617, 0, 0, 0, 0.046930984, 432.46185, 116.31383, 30.092863)
 material_override = SubResource("ShaderMaterial_tuemg")
-mesh = ExtResource("5_wc5p8")
+mesh = ExtResource("11_rq6f0")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Rock19"]
 
@@ -425,12 +446,12 @@ shape = SubResource("ConcavePolygonShape3D_tcnuu")
 [node name="Rock8" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.29896018, 0, 0, 0, 0.6537526, 0, 0, 0, 0.3, 527.3032, 16.85416, -85.91844)
 material_override = SubResource("ShaderMaterial_tuemg")
-mesh = ExtResource("5_wc5p8")
+mesh = ExtResource("11_rq6f0")
 
 [node name="Rock17" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5170185, 0, 0, 0, 1.1084217, 0, 0, 0, 0.3090964, 536.3229, 109.26065, -121.083626)
 material_override = SubResource("ShaderMaterial_tuemg")
-mesh = ExtResource("5_wc5p8")
+mesh = ExtResource("11_rq6f0")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Rock17"]
 
@@ -440,7 +461,7 @@ shape = SubResource("ConcavePolygonShape3D_i0g27")
 [node name="Rock28" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.35948336, 0, 0, 0, 0.88004893, 0, 0, 0, 0.58602446, 681.56415, 49.289658, -13.583702)
 material_override = SubResource("ShaderMaterial_tuemg")
-mesh = ExtResource("5_wc5p8")
+mesh = ExtResource("11_rq6f0")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Rock28"]
 
@@ -450,7 +471,7 @@ shape = SubResource("ConcavePolygonShape3D_i0g27")
 [node name="Rock35" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.49806178, 0, 0, 0, 1.4348277, 0, 0, 0, 0.58602446, 711.20447, -84.784134, -13.583702)
 material_override = SubResource("ShaderMaterial_tuemg")
-mesh = ExtResource("5_wc5p8")
+mesh = ExtResource("11_rq6f0")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Rock35"]
 
@@ -460,7 +481,7 @@ shape = SubResource("ConcavePolygonShape3D_i0g27")
 [node name="Rock39" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.49806178, 0, 0, 0, 1.4348277, 0, 0, 0, 0.58602446, 794.3694, -196.3761, -147.61859)
 material_override = SubResource("ShaderMaterial_tuemg")
-mesh = ExtResource("5_wc5p8")
+mesh = ExtResource("11_rq6f0")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Rock39"]
 
@@ -470,7 +491,7 @@ shape = SubResource("ConcavePolygonShape3D_i0g27")
 [node name="Rock36" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.3549079e-08, 0, -0.5860244, 0, 2.6290672, 0, 0.30996683, 0, -2.561594e-08, 803.4083, -84.784134, -106.26216)
 material_override = SubResource("ShaderMaterial_tuemg")
-mesh = ExtResource("5_wc5p8")
+mesh = ExtResource("11_rq6f0")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Rock36"]
 
@@ -480,7 +501,7 @@ shape = SubResource("ConcavePolygonShape3D_i0g27")
 [node name="Rock12" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.2720014e-08, 0, 0.291, 0, 0.3817369, 0, -0.291, 0, -1.2720014e-08, 433.53488, 81.21519, -32.116837)
 material_override = SubResource("ShaderMaterial_tuemg")
-mesh = ExtResource("6_wc5p8")
+mesh = ExtResource("12_tkag6")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Rock12"]
 
@@ -490,7 +511,7 @@ shape = SubResource("ConcavePolygonShape3D_ealrb")
 [node name="Rock10" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.25759354, 0, 0, 0, 0.47609124, 0, 0, 0, 0.32348892, 470.57452, 75.84984, -25.493639)
 material_override = SubResource("ShaderMaterial_tuemg")
-mesh = ExtResource("11_tcnuu")
+mesh = ExtResource("13_5hos5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Rock10"]
 
@@ -500,7 +521,7 @@ shape = SubResource("ConcavePolygonShape3D_jsnrv")
 [node name="Rock20" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.75352895, 0, 0, 0, 0.47609124, 0, 0, 0, 0.32348892, 736.86707, 109.81111, -25.493639)
 material_override = SubResource("ShaderMaterial_s0gvp")
-mesh = ExtResource("11_tcnuu")
+mesh = ExtResource("13_5hos5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Rock20"]
 
@@ -510,7 +531,7 @@ shape = SubResource("ConcavePolygonShape3D_jsnrv")
 [node name="Rock31" type="MeshInstance3D" parent="."]
 transform = Transform3D(-3.2937795e-08, -0.47609124, 0, 0.7535289, -2.081061e-08, 0, 0, 0, 0.32348892, 587.09705, -37.28973, -25.493639)
 material_override = SubResource("ShaderMaterial_s0gvp")
-mesh = ExtResource("11_tcnuu")
+mesh = ExtResource("13_5hos5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Rock31"]
 
@@ -520,7 +541,7 @@ shape = SubResource("ConcavePolygonShape3D_jsnrv")
 [node name="Rock25" type="MeshInstance3D" parent="."]
 transform = Transform3D(-7.204846e-09, 0.47609124, 0, -0.16482769, -2.081061e-08, 0, 0, 0, 0.32348892, 885.4686, 82.62787, -25.493639)
 material_override = SubResource("ShaderMaterial_vxd74")
-mesh = ExtResource("11_tcnuu")
+mesh = ExtResource("13_5hos5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Rock25"]
 
@@ -530,7 +551,7 @@ shape = SubResource("ConcavePolygonShape3D_jsnrv")
 [node name="Rock26" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.0542808e-08, 0.47609124, 0, -0.9275114, -2.081061e-08, 0, 0, 0, 0.32348892, 1061.022, 101.82451, -25.25769)
 material_override = SubResource("ShaderMaterial_dhlwf")
-mesh = ExtResource("11_tcnuu")
+mesh = ExtResource("13_5hos5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Rock26"]
 
@@ -540,7 +561,7 @@ shape = SubResource("ConcavePolygonShape3D_jsnrv")
 [node name="Rock32" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.6376436e-08, 0.47609124, 0, -0.37464923, -2.081061e-08, 0, 0, 0, 0.32348892, 1061.022, -15.453009, 78.23682)
 material_override = SubResource("ShaderMaterial_dhlwf")
-mesh = ExtResource("11_tcnuu")
+mesh = ExtResource("13_5hos5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Rock32"]
 
@@ -550,7 +571,7 @@ shape = SubResource("ConcavePolygonShape3D_jsnrv")
 [node name="Rock33" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.0542805e-08, 1.2129328, 0, -0.9275113, -5.3018987e-08, 0, 0, 0, 0.08313254, 888.60516, -116.23452, 93.31896)
 material_override = SubResource("ShaderMaterial_dhlwf")
-mesh = ExtResource("11_tcnuu")
+mesh = ExtResource("13_5hos5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Rock33"]
 
@@ -560,7 +581,7 @@ shape = SubResource("ConcavePolygonShape3D_jsnrv")
 [node name="Rock22" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.4387817, 0, 0, 0, 0.47609124, 0, 0, 0, 0.32348892, 869.6119, 241.89098, -25.493639)
 material_override = SubResource("ShaderMaterial_tuemg")
-mesh = ExtResource("11_tcnuu")
+mesh = ExtResource("13_5hos5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Rock22"]
 
@@ -570,7 +591,7 @@ shape = SubResource("ConcavePolygonShape3D_jsnrv")
 [node name="Rock29" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.7237368, 0, 0, 0, 1.0195158, 0, 0, 0, 0.32348892, 1018.14435, -25.701828, -25.493639)
 material_override = SubResource("ShaderMaterial_5t8nk")
-mesh = ExtResource("11_tcnuu")
+mesh = ExtResource("13_5hos5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Rock29"]
 
@@ -583,7 +604,7 @@ shape = SubResource("ConcavePolygonShape3D_jsnrv")
 [node name="Rock37" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.71289545, 0, 0, 0, 0.92530906, 0, 0, 0, 0.6565601, 821.89636, -226.37625, -25.493639)
 material_override = SubResource("ShaderMaterial_5t8nk")
-mesh = ExtResource("11_tcnuu")
+mesh = ExtResource("13_5hos5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Rock37"]
 
@@ -596,7 +617,7 @@ shape = SubResource("ConcavePolygonShape3D_jsnrv")
 [node name="Rock40" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.2262547, 0, 0, 0, 0.47609124, 0, 0, 0, 0.8609665, 1297.5488, -91.10449, -25.493639)
 material_override = SubResource("ShaderMaterial_5t8nk")
-mesh = ExtResource("11_tcnuu")
+mesh = ExtResource("13_5hos5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Rock40"]
 
@@ -609,7 +630,7 @@ shape = SubResource("ConcavePolygonShape3D_jsnrv")
 [node name="Rock43" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.9708257, 0, 0, 0, 0.47609124, 0, 0, 0, 0.8609665, 2146.3682, -78.7731, -25.493639)
 material_override = SubResource("ShaderMaterial_5t8nk")
-mesh = ExtResource("11_tcnuu")
+mesh = ExtResource("13_5hos5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Rock43"]
 
@@ -622,7 +643,7 @@ shape = SubResource("ConcavePolygonShape3D_jsnrv")
 [node name="Rock34" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.43683186, 0, 0, 0, 0.8530354, 0, 0, 0, 0.13456833, 983.5429, 61.77743, 82.42692)
 material_override = SubResource("ShaderMaterial_5t8nk")
-mesh = ExtResource("11_tcnuu")
+mesh = ExtResource("13_5hos5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Rock34"]
 
@@ -632,7 +653,7 @@ shape = SubResource("ConcavePolygonShape3D_jsnrv")
 [node name="Rock21" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.4387817, 0, 0, 0, -2.081061e-08, -0.3234889, 0, 0.47609124, -1.4140149e-08, 869.6119, 177.64952, -49.345646)
 material_override = SubResource("ShaderMaterial_j3e5s")
-mesh = ExtResource("11_tcnuu")
+mesh = ExtResource("13_5hos5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Rock21"]
 
@@ -642,79 +663,79 @@ shape = SubResource("ConcavePolygonShape3D_jsnrv")
 [node name="Rock11" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.06571931, 0, 0, 0, 1.0530072, 0, 0, 0, 0.06782458, 513.3867, 58.789005, 33.31124)
 material_override = SubResource("ShaderMaterial_tuemg")
-mesh = ExtResource("5_wc5p8")
+mesh = ExtResource("11_rq6f0")
 
 [node name="Rock30" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.06571931, 0, 0, 0, 1.0530072, 0, 0, 0, 0.06782458, 893.762, 58.78901, 33.31124)
 material_override = SubResource("ShaderMaterial_nu31w")
-mesh = ExtResource("5_wc5p8")
+mesh = ExtResource("11_rq6f0")
 
 [node name="Rock24" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.12782486, 0, 0, 0, 0.98880273, 0, 0, 0, 0.16449092, 605.61835, 68.93651, 45.784405)
 material_override = SubResource("ShaderMaterial_tuemg")
-mesh = ExtResource("5_wc5p8")
+mesh = ExtResource("11_rq6f0")
 
 [node name="Rock15" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.266, 0, 0, 0, 1.423, 0, 0, 0, 0.238, 596.4066, 117.66149, -104.17849)
 material_override = SubResource("ShaderMaterial_tuemg")
-mesh = ExtResource("5_wc5p8")
+mesh = ExtResource("11_rq6f0")
 
 [node name="Rock23" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.4085331, 0, 0, 0, 0.38419592, 0, 0, 0, 0.14560406, 859.689, 103.52492, 55.81821)
 material_override = SubResource("ShaderMaterial_tuemg")
-mesh = ExtResource("5_wc5p8")
+mesh = ExtResource("11_rq6f0")
 
 [node name="Rock18" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.98456, 0, 0, 0, 1.423, 0, 0, 0, 0.238, 959.3374, 117.66149, -104.17849)
 material_override = SubResource("ShaderMaterial_obt1j")
-mesh = ExtResource("5_wc5p8")
+mesh = ExtResource("11_rq6f0")
 
 [node name="Rock38" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.9845601, 0, 0, 0, 2.680988, 0, 0, 0, 0.238, 959.3375, -69.800766, -179.08804)
 material_override = SubResource("ShaderMaterial_obt1j")
-mesh = ExtResource("5_wc5p8")
+mesh = ExtResource("11_rq6f0")
 
 [node name="Rock27" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.1509953, 0, 0, 0, 2.0257413, 0, 0, 0, 0.6713815, 1295.3771, 113.87186, -1.9253935)
 material_override = SubResource("ShaderMaterial_tuemg")
-mesh = ExtResource("5_wc5p8")
+mesh = ExtResource("11_rq6f0")
 
 [node name="BrokenWall" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.145, 0, 0, 0, 0.145, 0, 0, 0, 0.145, 326.53757, 47.124767, -81.48315)
-mesh = ExtResource("6_wc5p8")
+mesh = ExtResource("12_tkag6")
 surface_material_override/0 = SubResource("ShaderMaterial_i0g27")
 
 [node name="BrokenWall3" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.385, 0, 0, 0, 0.385, 0, 0, 0, 0.385, 443.33295, -35.148014, 33.532257)
-mesh = ExtResource("6_wc5p8")
+mesh = ExtResource("12_tkag6")
 surface_material_override/0 = SubResource("ShaderMaterial_i0g27")
 
 [node name="BrokenWall4" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.385, 0, 0, 0, 0.385, 0, 0, 0, 0.385, 535.36554, -20.140224, 31.901665)
-mesh = ExtResource("6_wc5p8")
+mesh = ExtResource("12_tkag6")
 surface_material_override/0 = SubResource("ShaderMaterial_i0g27")
 
 [node name="BrokenWall2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-6.3381513e-09, 0, 0.145, 0, 0.145, 0, -0.145, 0, -6.3381513e-09, 269.52344, 52.540012, -118.973305)
-mesh = ExtResource("6_wc5p8")
+mesh = ExtResource("12_tkag6")
 surface_material_override/0 = SubResource("ShaderMaterial_ealrb")
 
 [node name="BrokenTree" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.802, 0, 0, 0, 2.802, 0, 0, 0, 2.802, 67.0403, -135.62135, -359.857)
 material_override = SubResource("ShaderMaterial_jsnrv")
-mesh = ExtResource("7_jsk3o")
+mesh = ExtResource("15_568ed")
 
 [node name="Bush" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.020678995, 0, -0.05096449, 0, 0.055, 0, 0.05096449, 0, -0.020678995, 156.63588, 15.493556, 12.080929)
 material_override = SubResource("StandardMaterial3D_s0gvp")
-mesh = ExtResource("11_cdqbm")
+mesh = ExtResource("18_yqthp")
 
 [node name="Bush2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.00010629135, 0, -0.03499984, 0, 0.035, 0, 0.03499984, 0, -0.00010629135, 145.25658, 15.493556, 14.774463)
 material_override = SubResource("StandardMaterial3D_s0gvp")
-mesh = ExtResource("11_cdqbm")
+mesh = ExtResource("18_yqthp")
 
 [node name="Bush3" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.007105821, 0, -0.023968883, 0, 0.025, 0, 0.023968883, 0, -0.007105821, 165.51263, 15.493556, 17.15438)
 material_override = SubResource("StandardMaterial3D_s0gvp")
-mesh = ExtResource("11_cdqbm")
+mesh = ExtResource("18_yqthp")

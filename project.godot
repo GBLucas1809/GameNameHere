@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Lumina"
-run/main_scene="uid://ce8mbn23c0p3x"
+run/main_scene="uid://dxx6c7xt0ncs1"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
