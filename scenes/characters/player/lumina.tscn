@@ -36,7 +36,7 @@ shape = SubResource("CapsuleShape3D_w54db")
 debug_color = Color(0.9734989, 0, 0.43693095, 0.41960785)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_y81pg")
+shape = SubResource("CapsuleShape3D_w54db")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_1c2ro")
