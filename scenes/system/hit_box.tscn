@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmkhsdu1cht2j"]
+
+[ext_resource type="Script" uid="uid://bfqcqa2omunrc" path="res://scripts/utilities/hit_box.gd" id="1_wu8l3"]
+
+[node name="HitBox" type="Area3D" groups=["attack"]]
+script = ExtResource("1_wu8l3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="DisableTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="DisableTimer" to="." method="_on_disable_timer_timeout"]

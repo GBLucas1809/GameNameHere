@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://ce8mbn23c0p3x"]
+[gd_scene load_steps=11 format=3 uid="uid://ce8mbn23c0p3x"]
 
 [ext_resource type="Script" uid="uid://b17cdrjvwbkea" path="res://scripts/camera/camera_effect.gd" id="1_4f05m"]
 [ext_resource type="PackedScene" uid="uid://cuqnvp3bpksl6" path="res://scenes/characters/player/lumina.tscn" id="1_ohas7"]
-[ext_resource type="PackedScene" uid="uid://dbs0mbhkyrbo5" path="res://scenes/characters/enemies/basic_enemy.tscn" id="2_b0sy8"]
+[ext_resource type="PackedScene" uid="uid://dw0dp3j5udwfk" path="res://scenes/characters/enemies/enemy.tscn" id="2_b0sy8"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_vfjo7"]
 
@@ -81,4 +81,5 @@ shape = SubResource("BoxShape3D_1fv16")
 [node name="Lumina" parent="." instance=ExtResource("1_ohas7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="BasicEnemy" parent="." instance=ExtResource("2_b0sy8")]
+[node name="enemy" parent="." instance=ExtResource("2_b0sy8")]
+player_path = NodePath("../Lumina")

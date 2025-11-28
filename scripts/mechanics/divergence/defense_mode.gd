@@ -1,11 +1,18 @@
 extends Node
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+static var is_mode_on = false
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+static func get_defense_shield(node_path):
 	pass
+
+static func defense(node_path):
+	var _shield_node = get_defense_shield(node_path)
+
+	if not _shield_node:
+		print("Node not found...")
+		return null
+	 
+	if _shield_node.visible == false: 
+		_shield_node.visible
+
