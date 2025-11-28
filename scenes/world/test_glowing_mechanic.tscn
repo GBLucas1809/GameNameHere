@@ -2,7 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://bmkhsdu1cht2j" path="res://scenes/system/hit_box.tscn" id="1_8codl"]
 [ext_resource type="PackedScene" uid="uid://cuqnvp3bpksl6" path="res://scenes/characters/player/lumina.tscn" id="1_a01pw"]
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://bq5mjb5mbtwn4" path="res://scripts/utilities/countdown.gd" id="3_i01om"]
+=======
+[ext_resource type="Script" uid="uid://b4e6ctadhx0x7" path="res://scripts/camera/camera_follow.gd" id="3_i01om"]
+>>>>>>> feature/movement_changes
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kqgng"]
 size = Vector2(20, 20)
@@ -99,6 +103,7 @@ shape = SubResource("BoxShape3D_8codl")
 [node name="Lumina" parent="Characters" instance=ExtResource("1_a01pw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
+<<<<<<< HEAD
 [node name="LuminaMovement" parent="Characters/Lumina" index="4"]
 friction = 30.0
 jump_velocity = 10.0
@@ -111,19 +116,22 @@ shaded = true
 script = ExtResource("3_i01om")
 max_seconds = 5
 
+=======
+>>>>>>> feature/movement_changes
 [node name="Systems" type="Node" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Systems" node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881898, 0, -0.25881898, 0.9659259, 0, 3.766089, 8.510157)
+script = ExtResource("3_i01om")
+target = NodePath("../../Characters/Lumina")
+offset = Vector3(0, 3, 10)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Systems"]
 transform = Transform3D(1, 0, 0, 0, 0.3672319, 0.9301294, 0, -0.9301294, 0.3672319, 0, 8.230137, 0)
 shadow_enabled = true
 
-[node name="Camera3D" type="Camera3D" parent="Systems"]
-transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881898, 0, -0.25881898, 0.9659259, 0, 3.766089, 8.510157)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Systems"]
 environment = SubResource("Environment_pb8ja")
-
-[connection signal="timeout" from="Characters/Lumina/LuminaAbilities/GlowCooldown" to="Characters/Lumina/LuminaAbilities" method="_on_glow_cooldown_timeout"]
 
 [editable path="Environment/Wall/HitBox"]
 [editable path="Characters/Lumina"]

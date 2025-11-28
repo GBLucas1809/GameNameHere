@@ -1,3 +1,4 @@
+class_name Lumina
 extends CharacterBody3D
 
 # Reference to our movement component
@@ -10,10 +11,14 @@ extends CharacterBody3D
 
 func _ready():
 	# Check if movement component exists
+	check_for_movement_component()
+	connect_movement_signals()
+
+func check_for_movement_component():
 	if not movement_component:
 		push_error("LuminaMovement component not found!")
-	
-	# Connect to movement component signals
+
+func connect_movement_signals():
 	movement_component.started_floating.connect(_on_started_floating)
 	movement_component.stopped_floating.connect(_on_stopped_floating)
 	movement_component.jumped.connect(_on_jumped)
