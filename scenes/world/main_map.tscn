@@ -293,11 +293,6 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Characters/Systems"]
 environment = SubResource("Environment_lkx8l")
 
-[node name="enemy" parent="Characters" instance=ExtResource("8_3brsj")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 204.72742, -29.887997, 2.047526)
-gravity = 3.0
-player_path = NodePath("../Lumina")
-
 [node name="Light" type="Node3D" parent="."]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Light"]
@@ -741,3 +736,7 @@ mesh = ExtResource("18_yqthp")
 transform = Transform3D(-0.007105821, 0, -0.023968883, 0, 0.025, 0, 0.023968883, 0, -0.007105821, 165.51263, 15.493556, 17.15438)
 material_override = SubResource("StandardMaterial3D_s0gvp")
 mesh = ExtResource("18_yqthp")
+
+[node name="enemy" parent="." instance=ExtResource("8_3brsj")]
+transform = Transform3D(12.121212, 0, 0, 0, 12.121212, 0, 0, 0, 12.121212, 1220.5133, -216.94962, 9.447207)
+player_path = NodePath("../Characters/Lumina")

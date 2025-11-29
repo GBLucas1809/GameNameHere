@@ -1,13 +1,22 @@
-[gd_scene load_steps=11 format=3 uid="uid://cuqnvp3bpksl6"]
+[gd_scene load_steps=20 format=3 uid="uid://cuqnvp3bpksl6"]
 
 [ext_resource type="Script" uid="uid://qivbesvur6mi" path="res://scripts/characters/player/lumina.gd" id="1_s6g4p"]
 [ext_resource type="PackedScene" uid="uid://b8l2ifwiwp83f" path="res://scenes/system/hurt_box.tscn" id="2_6t2wn"]
 [ext_resource type="Script" uid="uid://g8hj1vfhxlhs" path="res://scripts/characters/player/lumina_movement.gd" id="2_7t4te"]
 [ext_resource type="Script" uid="uid://b6fs4vr72lfu" path="res://scripts/characters/player/lumina_abilities.gd" id="3_gh867"]
+[ext_resource type="Script" uid="uid://c7wcflvttr3ov" path="res://scripts/characters/player/lumina_hitbox.gd" id="3_wev73"]
+[ext_resource type="Script" uid="uid://dufhut6fu3fh7" path="res://scripts/mechanics/self_frequency.gd" id="5_w54db"]
+[ext_resource type="Script" uid="uid://bl4v1w10ryfb4" path="res://scripts/characters/player/temperance_shield.gd" id="7_rrnex"]
+[ext_resource type="Texture2D" uid="uid://3oqixcxq46xb" path="res://sprites/lumina/temperance/temperance0000.png" id="8_0plnk"]
+[ext_resource type="Texture2D" uid="uid://c0f17pgpm7q5k" path="res://sprites/lumina/temperance/temperance0001.png" id="9_i3joo"]
+[ext_resource type="Texture2D" uid="uid://dafcybw1tqp81" path="res://sprites/lumina/temperance/temperance0002.png" id="10_ygdht"]
+[ext_resource type="Texture2D" uid="uid://dlcdju1p86ddf" path="res://sprites/lumina/temperance/temperance0003.png" id="11_4ncxw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w54db"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6t2wn"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_53tre"]
+radius = 1.402832
+height = 2.805664
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gh867"]
 emission = Color(0.99116415, 0.99116427, 0.99116415, 1)
@@ -22,6 +31,28 @@ emission_energy_multiplier = 5.67
 
 [sub_resource type="BoxMesh" id="BoxMesh_ttmyw"]
 material = SubResource("StandardMaterial3D_6t2wn")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sm6xp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d3jmh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_0plnk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_i3joo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ygdht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4ncxw")
+}],
+"loop": true,
+"name": &"shield",
+"speed": 5.0
+}]
 
 [node name="Lumina" type="CharacterBody3D"]
 collision_layer = 3
@@ -38,8 +69,18 @@ debug_color = Color(0.9734989, 0, 0.43693095, 0.41960785)
 [node name="DisableTimer" parent="HurtBox" index="1"]
 one_shot = true
 
+[node name="Hitbox" type="Area3D" parent="."]
+script = ExtResource("3_wev73")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+shape = SubResource("CapsuleShape3D_53tre")
+
+[node name="DisableTimer" type="Timer" parent="Hitbox"]
+one_shot = true
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_w54db")
+debug_color = Color(0.9734989, 0, 0.43693095, 0.41960785)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_1c2ro")
@@ -59,6 +100,24 @@ coyote_time = 0.05
 script = ExtResource("3_gh867")
 
 [node name="GlowCooldown" type="Timer" parent="LuminaAbilities"]
+
+[node name="SelfFrequency" type="Node" parent="."]
+script = ExtResource("5_w54db")
+
+[node name="TemperanceShield" type="Area3D" parent="."]
+transform = Transform3D(2.972983, 0, 0, 0, 3.1981218, 0, 0, 0, 2.726032, 0, 0, 0)
+script = ExtResource("7_rrnex")
+
+[node name="Hitbox" type="CollisionShape3D" parent="TemperanceShield"]
+transform = Transform3D(0.96915233, 0, 0, 0, 0.9234969, 0, 0, 0, 0.9999999, 0, 0, 0)
+shape = SubResource("SphereShape3D_sm6xp")
+
+[node name="ShieldAnimation" type="AnimatedSprite3D" parent="TemperanceShield"]
+transform = Transform3D(0.06999999, 0, 0, 0, 0.066999994, 0, 0, 0, 0.07199999, 0, 0, -0.2941006)
+visible = false
+sprite_frames = SubResource("SpriteFrames_d3jmh")
+animation = &"shield"
+frame_progress = 0.211408
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="timeout" from="LuminaAbilities/GlowCooldown" to="LuminaAbilities" method="_on_glow_cooldown_timeout"]

@@ -137,7 +137,8 @@ func apply_damage_effects():
 	print("Damage effects applied")
 	
 	
-	
+
+# ---------------------------------- OLD VERSION -----------------------------------------
 # extends CharacterBody3D
 
 # # Reference to our movement component

@@ -35,10 +35,10 @@ var health: int
 var has_hit_player_this_attack: bool = false
 
 # -------------------- REFERÊNCIAS DE NÓS --------------------
+@onready var area_laser: Area3D = $RangedAttack/Projectile
 @onready var animated_sprite: AnimatedSprite3D = $animations 
-@onready var animation_player: AnimationPlayer = $attack_animation
-@onready var area_laser: Area3D = $Projectile # Requer "Access as Unique Name" no Editor
-@onready var sprite_laser: Node3D = $RangedAttack # Requer "Access as Unique Name" no Editor
+@onready var attack_animation: AnimatedSprite3D = $RangedAttack/Projectile/attack_animation
+@onready var sprite_laser: Node3D = $RangedAttack
 
 # -------------------- INICIALIZAÇÃO --------------------
 func _ready():
@@ -151,9 +151,9 @@ func start_ranged_attack():
 	sprite_laser.visible = true
 	
 	# Toca a animação (que aumenta o sprite e a colisão do laser)
-	animation_player.play("corrupted_frequency")
+	attack_animation.play("corrupted_frequency")
 	
-	await animation_player.animation_finished
+	await attack_animation.animation_finished
 	
 	sprite_laser.visible = false
 	area_laser.monitoring = false
